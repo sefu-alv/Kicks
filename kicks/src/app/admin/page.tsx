@@ -1,7 +1,7 @@
 export default function adminPage() {
     return(
     <div className="h-screen ">
-        <div className="w-full h-[10rem]"><p className="m-auto text-[4rem] w-[25%] py-[2rem] text-center">Welcome Admin</p></div>
+        <div className="w-full h-[10rem]"><p className="m-auto text-[3rem] w-[25%] py-[2rem] text-center">Welcome Admin</p></div>
         <div className="overflow-x-auto h-[60%] ">
   <table className="table w-[70%]  bg-white m-auto">
     {/* head */}

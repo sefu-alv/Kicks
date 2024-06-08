@@ -10,6 +10,7 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom, black, white);
+  height: 400vh;
 }
 
 @layer utilities {
