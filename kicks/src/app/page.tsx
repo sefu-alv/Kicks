@@ -1,15 +1,11 @@
 import Link from "next/link";
-
+import MainLayout from "./main/layout";
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between ">
-      <div className="w-full text-white text-xl bg-neutral-900 h-[5rem] flex justify-center items-center gap-6 ">
-        <Link href="/#">WOMENS</Link>
-        <Link href="/#">MENS</Link>
-        <Link href="/#">KIDS</Link>
-        <Link href="/#">ACCESSORIES</Link>
-        <Link href="/#">ON SALE</Link>
-      </div>
+    <main className="min-h-screen  ">
+      <MainLayout>
+        <h1>wow this is awesome</h1>
+      </MainLayout>
     </main>
   );
 }

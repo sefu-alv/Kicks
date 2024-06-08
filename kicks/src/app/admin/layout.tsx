@@ -1,27 +1,26 @@
 import Link from "next/link";
-export default function AdminLayout({
-    children,
-  }: Readonly<{
-    children: React.ReactNode;
-  }>) {
-    return (
-        <html lang="en">
-        <head>
-          {/* Add any admin-specific meta tags or links to CSS files here */}
-        </head>
-        <body>
-          <nav className="admin-navigation">
-            <ul>
-              <li><Link href={"/admin/dashboard"}>Dashboard</Link></li>
-              <li><Link href={"/admin/products"}>Products</Link></li>
-              <li><Link href={"/admin/content"}>Costumers</Link></li>
-              <li><Link href={"/admin/content"}>Sales</Link></li>
-            </ul>
-          </nav>
-          <main className="admin-content">
-            {children}
-          </main>
-        </body>
-      </html>
-    );
-  }
+import { Nav, NavLink } from "@/components/navBar";
+export default function AdminContent({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <>
+      <nav className="bg-black h-[5.5rem] justify-between flex w-100">
+        <div className=" flex gap-10 px-8">
+          <p className=" text-red-700 text-[4rem] font-extrabold align-middle font-serif">
+            KICKS
+          </p>
+        </div>
+      </nav>
+      <Nav>
+        <NavLink href="/admin">Dashboard</NavLink>
+        <NavLink href="/admin/products">Products</NavLink>
+        <NavLink href="/#">Customers</NavLink>
+        <NavLink href="/#">Sales</NavLink>
+      </Nav>
+      <main className="admin-content">{children}</main>
+    </>
+  );
+}

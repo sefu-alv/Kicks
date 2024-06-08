@@ -1,3 +1,9 @@
+"use client"
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { ComponentProps, ReactNode } from "react";
+
+
 export default function NavBar() {
   return (
     <nav className="bg-black h-[5.5rem] justify-between flex w-100">
@@ -66,4 +72,12 @@ export default function NavBar() {
       </div>
     </nav>
   );
+}
+
+export function Nav ({children} : {children: ReactNode}){
+  return (<nav className="w-full text-white text-xl bg-neutral-900 h-[5rem] flex justify-center items-center gap-6 ">{children}</nav>)
+}
+export function NavLink(props: Omit<ComponentProps<typeof Link > , "className" >) {
+  const pathname = usePathname()
+  return <Link {...props} />
 }

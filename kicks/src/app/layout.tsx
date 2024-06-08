@@ -1,26 +1,22 @@
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import NavBar from '@/components/navBar';
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "KICKS",
   description: "Step your game up",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        {/* Global meta tags, links, etc. */}
+      </head>
       <body className={inter.className}>
-        <NavBar/>
         {children}
-        </body>
+      </body>
     </html>
   );
 }
