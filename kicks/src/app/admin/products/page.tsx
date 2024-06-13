@@ -2,14 +2,9 @@ import { Product } from "@prisma/client";
 import prisma from "../../../../prisma/db";
 import { error } from "console";
 import { useState, useEffect } from "react";
+import Image from "next/image"; 
 export default async function AdminProducts() {
   const products = await prisma.product.findMany();
-  var priceInDollar = products.map((product) => {
-    return {
-      ...product,
-      price: product.priceInCents / 100,
-    };
-  });
   return (
     <div className="h-screen w-full">
       <div className="w-full h-[10rem] flex justify-center">
@@ -17,10 +12,15 @@ export default async function AdminProducts() {
       </div>
       <div className="w-full h-screen">
         <div className=" w-full flex flex-wrap justify-center h-screen gap-4">
-          
-            {products.map((product: Product) => (
-              <div className="card w-96 bg-base-100 shadow-xl">
-              <figure><img src={product.productImage} alt="Shoes" /></figure>
+          {products.map((product: Product) => (
+            <div key={product.id} className="card w-98 bg-base-100 shadow-xl">
+              <figure>  <Image
+                  src={product.productImage}
+                  alt={product.name}
+                  width={420} 
+                  height={300} 
+                  className="object-cover"
+                /></figure>
               <div className="card-body">
                 <h2 className="card-title">{product.name}</h2>
                 <p>{product.description}</p>
@@ -30,7 +30,7 @@ export default async function AdminProducts() {
                 </div>
               </div>
             </div>
-            ))}
+          ))}
         </div>
       </div>
     </div>

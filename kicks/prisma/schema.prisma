@@ -24,6 +24,8 @@ model Product {
 }
 model Costumer{
   id String @id @default(uuid())
+  firstName String
+  lastName String
   email String @unique
   password String
   orders Order[]
@@ -31,11 +33,12 @@ model Costumer{
 }
 
 model Order {
-   id String @id @default(uuid())
+   id Int @id @default(autoincrement())
    userId String
    productId String
    address String
    city String
+   state String
    zipCode String
    country String
    user Costumer @relation(fields : [userId] , references: [id] , onDelete: Cascade)

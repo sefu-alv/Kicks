@@ -18,7 +18,7 @@ export default function AdminContent({
         <NavLink href="/admin">Dashboard</NavLink>
         <NavLink href="/admin/products">Products</NavLink>
         <NavLink href="/#">Customers</NavLink>
-        <NavLink href="/#">Sales</NavLink>
+        <NavLink href="/admin/orders">Orders</NavLink>
       </Nav>
       <main className="admin-content">{children}</main>
     </>
